@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Search</title>
+  </head>
+  <body>
+    <h1>Welcome to My Webpage</h1>
+
+    <p>This is an example paragraph containing some text.</p>
+   <div><input id="search-box"/>
+    <button onclick="searchWord()">search</button></div>
+</div> 
+
+
+    <script>
+      function searchWord() {
+        var targetWord = document.getElementById("search-box").value;
+        if (targetWord === null || targetWord.trim() === "") {
+          alert("Invalid input. Please enter a word to search.");
+          return;
+        }
+
+        // Get the content of the webpage
+        var webpageContent = document.body.innerText.toLowerCase();
+
+        // Check if the target word is present in the webpage content
+        if (webpageContent.includes(targetWord.toLowerCase())) {
+          alert(`The word '${targetWord}' was found on the webpage.`);
+        } else {
+          alert(`The word '${targetWord}' was not found on the webpage.`);
+        }
+      }
+
+      // Call the searchWord function when the page is loaded
+      window.onload = searchWord;
+    </script>
+  </body>
+</html>
